@@ -1,0 +1,34 @@
+accelerate launch train.py \
+    --seed=123 \
+    --experience_name="FontDiffuser_MR_Aug" \
+    --data_root="data_examples" \
+    --output_dir="outputs/FontDiffuser_MR_Aug" \
+    --report_to="wandb" \
+    --resolution=96 \
+    --style_image_size=96 \
+    --content_image_size=96 \
+    --content_encoder_downsample_size=3 \
+    --channel_attn=False \
+    --content_start_channel=64 \
+    --style_start_channel=64 \
+    --train_batch_size=16 \
+    --perceptual_coefficient=0.01 \
+    --offset_coefficient=0.5 \
+    --max_train_steps=200100 \
+    --ckpt_interval=5000 \
+    --gradient_accumulation_steps=1 \
+    --log_interval=5 \
+    --learning_rate=1e-4 \
+    --lr_scheduler="linear" \
+    --lr_warmup_steps=10000 \
+    --drop_prob=0.1 \
+    --mixed_precision="no" \
+    --validation_content_dir="/scratch/yl10337/FontDiffuser/data_examples/val/c" \
+    --validation_style_dir="/scratch/yl10337/FontDiffuser/data_examples/val/s" \
+    --validation_gt_dir="/scratch/yl10337/FontDiffuser/data_examples/val/GT" \
+    --validation_tmp_dir="/scratch/yl10337/FontDiffuser/data_examples/val/tmp" \
+    --augment_content \
+    --augment_style \
+    --augment_content_prob=1 \
+    --augment_style_prob=1 \
+    
